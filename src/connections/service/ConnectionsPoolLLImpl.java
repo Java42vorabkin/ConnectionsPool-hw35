@@ -12,7 +12,7 @@ public class ConnectionsPoolLLImpl implements ConnectionsPool  {
 	int poolMaxSize;
 	
 	public ConnectionsPoolLLImpl(int maxSize) {
-		this.poolMaxSize = maxSize;
+		poolMaxSize = maxSize;
 	}
 
 	@Override

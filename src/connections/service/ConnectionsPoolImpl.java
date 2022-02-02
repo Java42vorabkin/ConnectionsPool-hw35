@@ -10,7 +10,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 		Connection connection;
 		Node prev;
 		Node next;
-		public Node(Connection connection) {
+		Node(Connection connection) {
 			this.connection = connection;
 		}
 	}
@@ -18,7 +18,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 		Node head = null;
 		Node tail = null;
 		
-		public void addConnection(Connection connection) {
+		private void addConnection(Connection connection) {
 			Node newNode = new Node(connection);
 			if (head == null) {
 				head = tail = newNode;
@@ -27,7 +27,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 			}
 		}
 
-		public void moveNodeToHead(Node node) {
+		private void moveNodeToHead(Node node) {
 			if (node != tail) {
 				// remove not tail node
 				removeNode(node);
@@ -64,7 +64,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 	HashMap<Integer, Node> mapConnections = new HashMap<>();
 	int poolMaxSize;
 	public ConnectionsPoolImpl(int maxSize) {
-		this.poolMaxSize = maxSize;
+		poolMaxSize = maxSize;
 	}
 
 	@Override
